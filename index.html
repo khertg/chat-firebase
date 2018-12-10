@@ -36,6 +36,18 @@
   
   var provider = new firebase.auth.GoogleAuthProvider();
   
+	
+		 var database = firebase.database();
+	 
+	 function writeUserData(userId, name, email, imageUrl) {
+	  firebase.database().ref('users/' + userId).set({
+		username: name,
+		email: email,
+		profile_picture : imageUrl
+	  });
+	}
+	
+	writeUserData("1123","poncins","pdeluna@student.passerellesnumeriques.org","N/A");
 
 
 function googleSignin() {
